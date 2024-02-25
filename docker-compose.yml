@@ -1,0 +1,37 @@
+version: '3.8'
+services:
+  onlinebookstore:
+    build:
+      context: .
+      dockerfile: Docker-files/db/Dockerfile
+    image: akash/onlinebookstore_app:db_img
+    container_name: onlinebookstore
+    ports:
+      - "3306:3306"
+    volumes:
+      - onlinebookstoredbdata:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=admin123
+  onlinebookstoreapp:
+    build:
+      context: .
+      dockerfile: Docker-files/app/Dockerfile
+    image: akash/onlinebookstore_app:app_img
+    container_name: onlinebookstoreapp
+    ports:
+      - "8080:8080"
+    volumes: 
+      - onlinebookstoreappdata:/usr/local/tomcat/webapps
+ 
+  onlinebookstoreweb:
+    build:
+      context: .
+      dockerfile: Docker-files/web/Dockerfile
+    image: akash/onlinebookstore_app:web_img
+    container_name: onlinebookstoreweb
+    ports:
+      - "80:80"
+ 
+volumes:
+  onlinebookstoredbdata: {}
+  onlinebookstoreappdata: {}
