@@ -4,7 +4,7 @@ services:
     build:
       context: .
       dockerfile: Docker-files/db/Dockerfile
-    image: akash/onlinebookstore_app:db_img
+    image: prarthana/onlinebookstore_app:db_img
     container_name: onlinebookstore
     ports:
       - "3306:3306"
@@ -16,7 +16,7 @@ services:
     build:
       context: .
       dockerfile: Docker-files/app/Dockerfile
-    image: akash/onlinebookstore_app:app_img
+    image: prarthana/onlinebookstore_app:app_img
     container_name: onlinebookstoreapp
     ports:
       - "8080:8080"
@@ -27,7 +27,7 @@ services:
     build:
       context: .
       dockerfile: Docker-files/web/Dockerfile
-    image: akash/onlinebookstore_app:web_img
+    image: prarthana/onlinebookstore_app:web_img
     container_name: onlinebookstoreweb
     ports:
       - "80:80"
