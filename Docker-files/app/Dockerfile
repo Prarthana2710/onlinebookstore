@@ -1,7 +1,7 @@
 FROM openjdk:11 AS BUILD_IMAGE
 RUN apt update && apt install maven -y
-RUN git clone https://github.com/Akashsabu12/onlinebookstore1.git
-RUN cd onlinebookstore1 && git checkout docker && mvn install
+RUN git clone https://github.com/Prarthana2710/onlinebookstore.git
+RUN cd onlinebookstore && mvn install
 
 FROM tomcat:9-jre11
 
